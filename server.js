@@ -19,7 +19,6 @@ app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
   // app.use(compression);
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname, "client/build")));
 
   app.get("*", function (req, res) {
@@ -32,7 +31,7 @@ app.listen(port, (error) => {
   console.log("Server is running on port " + port);
 });
 
-app.get("./service-worker.js", (req, res) => {
+app.get("/service-worker.js", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "build", "service-worker.js"));
 });
 
