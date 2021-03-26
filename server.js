@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+var enforce = require("express-sslify");
 // const compression = require('compression');
 
 
